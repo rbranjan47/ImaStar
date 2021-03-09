@@ -25,8 +25,8 @@ public class base
 		try
 		{
 			prop= new Properties();
-			FileInputStream file=new FileInputStream("C:\\Users\\Lenovo\\eclipse-workspace\\FreeCRMTest\\src\\main\\java\\com"
-					+ "\\qa\\crm\\config\\Config.properties");
+			FileInputStream file=new FileInputStream("C:\\Users\\Thinksysuser\\git\\ImAstar\\"
+					+ "iamstar_automation\\src\\main\\java\\pagesdata_automation\\Config.properties");
 			prop.load(file);
 		}
 		catch(FileNotFoundException e)

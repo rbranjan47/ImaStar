@@ -11,7 +11,7 @@ public class facebook_login extends base
 
 	//POM
 	@FindBy(id = "facebook-connect")
-	WebElement Facebook;
+	WebElement facebook_btn;
 	
 	@FindBy(id = "email")
 	WebElement email;
@@ -27,11 +27,19 @@ public class facebook_login extends base
 	{
 		PageFactory.initElements(driver, this);
 	}
-	
+	//getting title
+	public  String pagetitle()
+	{
+		return driver.getTitle();
+	}
+	public boolean facebook_btn_click()
+	{
+		return facebook_btn.isEnabled();
+	}
 	//Clicking on Facebook
 	public homepage facebook(String fbemail, String fbpass )
 	{
-		Facebook.click();
+		facebook_btn.click();
 		email.sendKeys(fbemail);
 		password.sendKeys("fbpass");
 		

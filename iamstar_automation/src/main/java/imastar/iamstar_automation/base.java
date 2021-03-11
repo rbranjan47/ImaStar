@@ -8,9 +8,11 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class base
@@ -39,14 +41,14 @@ public class base
 		}	
 	}
 	
-	public static void initialization()
+	public static void initialization() throws InterruptedException
 	{
 		String browsername=prop.getProperty("browser");
 		
 		if (browsername.equals("chrome"))
 		{
 			//setting the path of chrome driver
-			System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver_win32\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
 			driver =new ChromeDriver();
 		}
 		
@@ -58,7 +60,7 @@ public class base
 		
 		else if(browsername.equals("internetexplorer"))
 		{
-			System.setProperty("webrdriver.ie.driver", "./driver/IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", "./driver/IEDriverServer.exe");
 			driver=new InternetExplorerDriver();
 		}
 		
@@ -68,7 +70,11 @@ public class base
 		driver.manage().deleteAllCookies();
 	
 		driver.get(prop.getProperty("url"));
-		driver.findElement(By.xpath("//div[contains(text(), 'I Agree')]")).click();
+		Thread.sleep(5000);
+		WebElement click_btn=driver.findElement(By.xpath("//div[@class='text-center agree-btn col']"));
+		WebDriverWait wait=new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(click_btn));
+		click_btn.click();
 		driver.findElement(By.xpath("//a[@data-name='Profile']")).click();
 	}
 }

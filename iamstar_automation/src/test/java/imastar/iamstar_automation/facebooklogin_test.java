@@ -20,7 +20,7 @@ public class facebooklogin_test extends base
 	}
 	
 	@BeforeMethod
-	public void setup()
+	public void setup() throws InterruptedException
 	{
 		initialization();
 		

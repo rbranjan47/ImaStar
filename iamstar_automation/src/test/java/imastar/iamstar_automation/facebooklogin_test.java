@@ -1,5 +1,8 @@
 package imastar.iamstar_automation;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -27,26 +30,47 @@ public class facebooklogin_test extends base
 		ln=new facebook_login();
 	}
 	
-	@Test(priority = 1)
-	public void verifytitile()
+	@Test
+	public void login_facebook()
 	{
+		
 		String title=ln.pagetitle();
 		String ExpectedTitle="I'm A Star";
 		Assert.assertEquals(title, ExpectedTitle);
-	}
-	
-	@Test(priority = 2)
-	public void facebook_btn_check()
-	{
+		
+		
+		//checking the facebook button
 		boolean clickable = ln.facebook_btn_click();
 		Assert.assertEquals(clickable, true);
+		
+		/* String parent_window = driver.getWindowHandle();
+		
+		Set<String> windows = driver.getWindowHandles();
+		
+		Iterator<String> itr = windows.iterator();
+		
+		while(itr.hasNext())
+		{
+			String child_window = itr.next();
+			
+			if(!parent_window.equals(child_window))
+			{
+				driver.switchTo().window(child_window);
+				
+				//getting value of email and password
+				String email = prop.getProperty("facebook_email_default");
+				String pass = prop.getProperty("facebook_pass_default");
+				
+				ln.facebook(email, pass);	
+			}  
+		}	*/
+		
+		String email = prop.getProperty("facebook_email_default");
+		String pass = prop.getProperty("facebook_pass_default");
+		
+		ln.facebook(email, pass);
 	}
 	
-	@Test(priority = 3)
-	public void login_check()
-	{
-		hm=ln.facebook(prop.getProperty("facebook_email_default"), prop.getProperty("facebook_pass_default"));
-	}
 	@AfterTest
 	public void endup() throws InterruptedException
 	{

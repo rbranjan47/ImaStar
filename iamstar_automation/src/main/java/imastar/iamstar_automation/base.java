@@ -41,6 +41,7 @@ public class base
 		}	
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static void initialization() throws InterruptedException
 	{
 		String browsername=prop.getProperty("browser");

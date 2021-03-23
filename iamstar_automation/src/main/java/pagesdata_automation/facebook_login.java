@@ -1,5 +1,6 @@
 package pagesdata_automation;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,8 +9,7 @@ import imastar.iamstar_automation.base;
 
 public class facebook_login extends base
 {
-
-	//POM
+	
 	@FindBy(id = "facebook-connect")
 	WebElement facebook_btn;
 	
@@ -39,9 +39,10 @@ public class facebook_login extends base
 	//Clicking on Facebook
 	public homepage facebook(String fbemail, String fbpass )
 	{
-		facebook_btn.click();
+		driver.findElement(By.xpath("//span[@class = 'btn-label']/../../button[1]")).click();
+		
 		email.sendKeys(fbemail);
-		password.sendKeys("fbpass");
+		password.sendKeys(fbpass);
 		
 		login_btn.click();
 		

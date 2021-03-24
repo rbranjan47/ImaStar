@@ -1,7 +1,7 @@
 package imastar.iamstar_automation;
 
-import java.util.Iterator;
-import java.util.Set;
+//import java.util.Iterator;
+//import java.util.Set;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -9,12 +9,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pagesdata_automation.facebook_login;
-import pagesdata_automation.homepage;
+
 
 public class facebooklogin_test extends base
 {
 	facebook_login ln;
-	homepage hm;
 	
 	
 	public facebooklogin_test()
@@ -31,7 +30,7 @@ public class facebooklogin_test extends base
 	}
 	
 	@Test
-	public void login_facebook()
+	public void login_facebook() throws InterruptedException
 	{
 		
 		String title=ln.pagetitle();

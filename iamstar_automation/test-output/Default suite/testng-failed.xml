@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="imastar.iamstar_automation.facebooklogin_test">
+      <class name="imastar.iamstar_automation.homepage_test">
         <methods>
+          <include name="home_page"/>
           <include name="setup"/>
-          <include name="login_check"/>
-          <include name="endup"/>
         </methods>
-      </class> <!-- imastar.iamstar_automation.facebooklogin_test -->
+      </class> <!-- imastar.iamstar_automation.homepage_test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -2,6 +2,7 @@ package pagesdata_automation;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -37,16 +38,18 @@ public class facebook_login extends base
 		return facebook_btn.isEnabled();
 	}
 	//Clicking on Facebook
-	public homepage facebook(String fbemail, String fbpass )
+	public void facebook(String fbemail, String fbpass ) throws InterruptedException
 	{
-		driver.findElement(By.xpath("//span[@class = 'btn-label']/../../button[1]")).click();
+		WebElement faceBook_button = driver.findElement(By.xpath("//span[@class = 'btn-label']/../../button[1]"));
+		Actions act = new Actions(driver);
+		act.moveToElement(faceBook_button).click().build().perform();
 		
+		Thread.sleep(10000);
 		email.sendKeys(fbemail);
 		password.sendKeys(fbpass);
 		
 		login_btn.click();
 		
-		return new homepage();
 	}
 	
 }

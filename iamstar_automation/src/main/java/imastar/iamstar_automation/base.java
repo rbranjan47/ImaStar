@@ -72,10 +72,9 @@ public class base
 	
 		driver.get(prop.getProperty("url"));
 		Thread.sleep(5000);
-		WebElement click_btn=driver.findElement(By.xpath("//div[@class='text-center agree-btn col']"));
 		WebDriverWait wait=new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(click_btn));
-		click_btn.click();
-		driver.findElement(By.xpath("//a[@data-name='Profile']")).click();
+		WebElement profile_icon = driver.findElement(By.xpath("//a[@data-name='Profile']"));
+		wait.until(ExpectedConditions.elementToBeClickable(profile_icon));
+		profile_icon.click();
 	}
 }

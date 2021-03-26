@@ -36,6 +36,10 @@ public class forgotPassword extends base {
 	
 	@FindBy(xpath = "//div[@data-tooltip='Inbox']")
 	WebElement inbox;
+	
+	@FindBy(xpath = "//a[contains(text(),'Reset Password')]")
+	WebElement reset_link;
+	
 
 	// Intializing the POM
 	public forgotPassword() {
@@ -102,9 +106,26 @@ public class forgotPassword extends base {
 				.until(ExpectedConditions.elementToBeClickable(inbox));
 		composeElement.click();
 		
-		WebElement maximizeEmailElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td//img[2]")));
-		maximizeEmailElement.click();
-
+		//getting all text present on the message
+		List<WebElement> subjects = driver.findElements(By.xpath("//div[@class='aeF']"));
+		int subject_count = subjects.size();
+		
+		for (int i=0;i<subject_count; i++)
+		{
+			String match_text = subjects.get(i).getText();
+			String required_subject = "Reset Password - I'm A Star";
+			if (match_text.equalsIgnoreCase(required_subject))
+			{
+				subjects.get(i).click();
+				break;
+			}
+		}
+		//clicking on reset button
+		WebElement reset_button = wait.until(ExpectedConditions.elementToBeClickable(reset_link));
+		reset_button.click();
+		
+		//switching into child window
+		
 		WebElement sendToElement = wait.until(ExpectedConditions.elementToBeClickable(By.name("to")));
 		sendToElement.click();
 		sendToElement.clear();

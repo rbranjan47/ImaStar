@@ -52,10 +52,13 @@ public class forgotpassword_test extends base {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-
+		String alert_expected = "Mail Sent Successfully" ;
 		String alert_text = alert.getText();
 		System.out.println(alert_text);
-
+		if(alert_text.equalsIgnoreCase(alert_expected))
+		{
+			System.out.println("Alert message is same! ");
+		}
 		// swicthing into new window to make logging in gmail
 		driver.switchTo().newWindow(WindowType.TAB);
 		String link = prop.getProperty("gmail_link_address");

@@ -4,15 +4,19 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
+import Methods_automation.imastarmethods;
 import imastar.iamstar_automation.base;
 
-public class forgotPassword extends base {
+public class forgotPassword extends base 
+{
+	imastarmethods imethods;
+	
 	@FindBy(xpath = "//span[contains(text(),'Forgot Password')]")
 	WebElement forgot;
 
@@ -33,13 +37,21 @@ public class forgotPassword extends base {
 
 	@FindBy(id = "passwordNext")
 	WebElement login_next;
-	
+
 	@FindBy(xpath = "//div[@data-tooltip='Inbox']")
 	WebElement inbox;
-	
+
 	@FindBy(xpath = "//a[contains(text(),'Reset Password')]")
 	WebElement reset_link;
 	
+	@FindBy(id = "email")
+	WebElement email_imastar;
+	
+	@FindBy(id = "password")
+	WebElement password_imastar;
+	
+	@FindBy(xpath = "//button[contains(text(),'Log In')]")
+	WebElement login_imastar;
 
 	// Intializing the POM
 	public forgotPassword() {
@@ -71,47 +83,48 @@ public class forgotPassword extends base {
 	public void forgrotlink() {
 		click_link.click();
 	}
-	public void  gmai_title()
-	{
-		//checking the title of the Page
-		String title_page = driver.getTitle();
-		String original_title = "Gmail";
-		Assert.assertEquals(title_page, original_title);
 
-	}
 
 	// opening new window to confirm mail
 	@SuppressWarnings("deprecation")
-	public void gmail() {
+	public void gmail() throws InterruptedException 
+	{
+		//driver.switchTo().newWindow(WindowType.TAB);
+		
+		//storing in the LIST
+	    List<String> windows =  imethods.window_Handle();
+	    driver.switchTo().window(windows.get(1));
+	    Thread.sleep(3000);
+		
+		driver.get(prop.getProperty("gmail_link_address"));
+	 
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		//passing mail ID
+		// passing mail ID
 		WebElement userElement = wait.until(ExpectedConditions.elementToBeClickable(gmail_email));
 		userElement.click();
 		userElement.clear();
 		userElement.sendKeys(prop.getProperty("gmail_email_forgot"));
-		//clicking on next button
+		// clicking on next button
 		WebElement identifierNext = wait.until(ExpectedConditions.elementToBeClickable(gmail_next));
 		identifierNext.click();
-		//passing password
+		// passing password
 		WebElement passwordElement = wait.until(ExpectedConditions.elementToBeClickable(password_field));
 		passwordElement.click();
 		passwordElement.clear();
 		passwordElement.sendKeys(prop.getProperty("gmail_password_forgot"));
-		//clicking on next button
+		// clicking on next button
 		WebElement passwordNext = wait.until(ExpectedConditions.elementToBeClickable(login_next));
 		passwordNext.click();
-		
-		//clicking on the Inbox option
-		WebElement composeElement = wait
-				.until(ExpectedConditions.elementToBeClickable(inbox));
+
+		// clicking on the Inbox option
+		WebElement composeElement = wait.until(ExpectedConditions.elementToBeClickable(inbox));
 		composeElement.click();
-		
-		//getting all text present on the message
+
+		// getting all text present on the message
 		List<WebElement> subjects = driver.findElements(By.xpath("//div[@class='aeF']"));
 		int subject_count = subjects.size();
-		
-		for (int i=0;i<subject_count; i++)
-		{
+
+		for (int i = 0; i < subject_count; i++) {
 			String match_text = subjects.get(i).getText();
 			String required_subject = "Reset Password - I'm A Star";
 			if (match_text.equalsIgnoreCase(required_subject))
@@ -120,51 +133,54 @@ public class forgotPassword extends base {
 				break;
 			}
 		}
-		//clicking on reset button
+		// clicking on reset button
 		WebElement reset_button = wait.until(ExpectedConditions.elementToBeClickable(reset_link));
 		reset_button.click();
+
+		// switching into child window
+		List<String> window =  imethods.window_Handle();
+		driver.switchTo().window(window.get(2));
 		
-		//switching into child window
+		String new_password = prop.getProperty("imastar_new_password");
+		System.out.println("new password is :" + new_password);
+		driver.findElement(By.id("restpassword")).sendKeys(new_password);
+		driver.findElement(By.id("restconfirmpassword")).sendKeys(new_password);
 		
-		WebElement sendToElement = wait.until(ExpectedConditions.elementToBeClickable(By.name("to")));
-		sendToElement.click();
-		sendToElement.clear();
-		sendToElement.sendKeys(String.format("%s@gmail.com", prop.getProperty("username")));
-
+		try 
+		{
+			driver.findElement(By.xpath("//button[@type='submit']")).click();
+		} catch (Exception e) 
+		{
+			System.out.println(e.getCause());
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
 		
-		WebElement subjectElement = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@name = 'subjectbox']")));
-		subjectElement.click();
-		subjectElement.clear();
-		subjectElement.sendKeys(prop.getProperty("email.subject"));
-
-		WebElement emailBodyElement = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@role = 'textbox']")));
-		emailBodyElement.click();
-		emailBodyElement.clear();
-		emailBodyElement.sendKeys(prop.getProperty("email.body"));
-
-		WebElement sendMailElement = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='Send']")));
-		sendMailElement.click();
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Message sent')]")));
-		List<WebElement> inboxEmails = wait.until(
-				ExpectedConditions.visibilityOfAllElements(driver.findElements(By.xpath("//*[@class='zA zE']"))));
-
-		for (WebElement email : inboxEmails) {
-			if (email.isDisplayed() && email.getText().contains("email.subject")) {
-				email.click();
-
-				WebElement label = wait.until(ExpectedConditions
-						.visibilityOfElementLocated(By.xpath("//*[contains(@title,'with label Inbox')]")));
-				WebElement subject = wait.until(ExpectedConditions
-						.visibilityOfElementLocated(By.xpath("//h2[contains(text(),'Subject of this message')]")));
-				WebElement body = wait.until(ExpectedConditions.visibilityOfElementLocated(
-						By.xpath("//div[contains(text(),'Single line body of this message')]")));
-
-			}
-
+		//switching back to parent window i.e. gmail
+		driver.switchTo().window(window.get(1));
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//img[@class='gb_Da gbii']")).click();
+		driver.findElement(By.id("gb_71")).click();	
+	}
+	
+	public void imastarpasswordcheck()
+	{
+		driver.switchTo().newWindow(WindowType.TAB);
+		driver.get(prop.getProperty("login_url"));
+		
+		//sending mail
+		email_imastar.sendKeys(prop.getProperty("functiontest871@gmail.com"));
+		password_imastar.sendKeys(prop.getProperty("signin_pass"));
+		
+		
+		if(login_imastar.isEnabled())
+		{
+			login_imastar.click();
+			System.out.println("logged In successfully with new Password");
+		}
+		else
+		{
+			
 		}
 	}
 }

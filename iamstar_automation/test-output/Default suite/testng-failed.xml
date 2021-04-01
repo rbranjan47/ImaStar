@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="imastar.iamstar_automation.homepage_test">
+      <class name="imastar.iamstar_automation.forgotpassword_test">
         <methods>
-          <include name="home_page"/>
+          <include name="exit"/>
+          <include name="forgot_password"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- imastar.iamstar_automation.homepage_test -->
+      </class> <!-- imastar.iamstar_automation.forgotpassword_test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

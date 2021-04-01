@@ -15,11 +15,14 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+
 public class base
 {
 	public static WebDriver driver=null;
 	public static Properties prop;
 	public static WebDriverWait wait;
+	public static WebElement element;
 	
 	// constructor
 	public  base() 
@@ -44,6 +47,7 @@ public class base
 	@SuppressWarnings("deprecation")
 	public static void initialization() throws InterruptedException
 	{
+     	
 		String browsername=prop.getProperty("browser");
 		
 		if (browsername.equals("chrome"))
@@ -52,7 +56,6 @@ public class base
 			System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
 			driver =new ChromeDriver();
 		}
-		
 		else if(browsername.equals("firefox"))
 		{
 			System.setProperty("webdriver.gecko.driver", "‪./driver/geckodriver.exe");
@@ -69,7 +72,7 @@ public class base
 		driver.manage().timeouts().implicitlyWait(Util.timeout, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(Util.pageout, TimeUnit.SECONDS);
 		driver.manage().deleteAllCookies();
-	
+
 		driver.get(prop.getProperty("url"));
 		Thread.sleep(5000);
 		WebDriverWait wait=new WebDriverWait(driver, 10);

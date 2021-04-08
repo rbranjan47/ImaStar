@@ -30,7 +30,7 @@ public class loginCredentials_test extends base
 	{
 		
 		String title=ht.page_title();
-		String ExpectedTitle="I'm A Star";
+		String ExpectedTitle="A";
 		Assert.assertEquals(title, ExpectedTitle);
 		
 		

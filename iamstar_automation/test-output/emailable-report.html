@@ -9,13 +9,21 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">19,384</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">255</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">imastar.iamstar_automation.forgotpassword_test</td><td><a href="#m0">forgot_password</a></td><td rowspan="1">1617283228876</td><td rowspan="1">1715</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">rough_imastar.rough_class</td><td><a href="#m0">initialization</a></td><td rowspan="1">1617876104918</td><td rowspan="1">185</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">imastar.iamstar_automation.forgotpassword_test#forgot_password</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;Methods_automation.imastarmethods.window_Handle()&quot; because &quot;this.imethods&quot; is null
-	at pagesdata_automation.forgotPassword.gmail(forgotPassword.java:95)
-	at imastar.iamstar_automation.forgotpassword_test.forgot_password(forgotpassword_test.java:96)
+<h2>Default test</h2><h3 id="m0">rough_imastar.rough_class#initialization</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalStateException: The driver executable must exist: C:\Users\Thinksysuser\git\ImAstar\iamstar_automation\‪.\iamstar_automation\driver\geckodriver.exe
+	at org.openqa.selenium.internal.Require$FileStateChecker.isFile(Require.java:289)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:154)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:149)
+	at org.openqa.selenium.firefox.GeckoDriverService.access$100(GeckoDriverService.java:45)
+	at org.openqa.selenium.firefox.GeckoDriverService$Builder.findDefaultExecutable(GeckoDriverService.java:186)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:405)
+	at org.openqa.selenium.firefox.FirefoxDriver.toExecutor(FirefoxDriver.java:207)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:177)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:155)
+	at rough_imastar.rough_class.initialization(rough_class.java:62)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

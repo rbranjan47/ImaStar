@@ -8,7 +8,7 @@ import java.util.Set;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
-
+import freemarker.core.JavaScriptOutputFormat;
 import imastar.iamstar_automation.base;
 
 public class imastarmethods extends base
@@ -21,6 +21,15 @@ public class imastarmethods extends base
 		executor.executeScript("arguments[0].click();", element);
 	}
 	
+	//scrolling
+	public void scrollto()
+	{
+		JavascriptExecutor scrollexe = (JavascriptExecutor) driver;
+		scrollexe.executeScript("window.scrollTo(0, 2500)", element);
+	}
+	
+	
+	//child window handle
 	public List<String> window_Handle() 
 	{
 		

@@ -1,4 +1,4 @@
-package imastar.iamstar_automation;
+package rough_imastar;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,10 +12,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
+import imastar.iamstar_automation.Util;
 
-
-public class base
+public class rough_class
 {
 	public static WebDriver driver=null;
 	public static Properties prop;
@@ -23,7 +24,7 @@ public class base
 	public static WebElement element;
 	
 	// constructor
-	public  base() 
+	public  rough_class() 
 	{
 		try
 		{
@@ -42,6 +43,7 @@ public class base
 		}	
 	}
 	
+	@Test
 	@SuppressWarnings("deprecation")
 	public static void initialization() throws InterruptedException
 	{
@@ -56,7 +58,7 @@ public class base
 		}
 		else if(browsername.equals("firefox"))
 		{
-			System.setProperty("webdriver.gecko.driver", "‪./driver/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "‪./iamstar_automation/driver/geckodriver.exe");
 			driver=new FirefoxDriver();
 		}
 		
@@ -71,7 +73,7 @@ public class base
 		driver.manage().timeouts().pageLoadTimeout(Util.pageout, TimeUnit.SECONDS);
 		driver.manage().deleteAllCookies();
 
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("prod_url"));
 		Thread.sleep(3000);
 		
 		/* DEPRICIATED
@@ -80,5 +82,9 @@ public class base
 		wait.until(ExpectedConditions.elementToBeClickable(profile_icon));
 		profile_icon.click();
 		*/
+		
+		System.out.println(driver.getTitle());
+		driver.close();
+		
 	}
 }

@@ -1,5 +1,6 @@
 package imastar.iamstar_automation;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -18,6 +19,7 @@ public class forgotpassword_test extends base
 {
 	forgotPassword fp;
 	imastarmethods imethods;
+	imastarmethods starmethods;
 
 	public forgotpassword_test() {
 		super();
@@ -46,15 +48,34 @@ public class forgotpassword_test extends base
      	extent.attachReporter(spark);
 	
 		        	
-		ExtentTest exptitle = extent.createTest("title_check");
-		String title = fp.page_title();
-		String ExpectedTitle = "I'm A Star";
+		
+		String title=driver.getTitle();
+		String ExpectedTitle="A-Star";
 		Assert.assertEquals(title, ExpectedTitle);
-		exptitle.pass("Matched Imastar Title");
-		exptitle.fail("Not matched Imastar title");
-		exptitle.fail(MediaEntityBuilder.createScreenCaptureFromPath("title_not_matched.png").build());
+		
+		//checking the top Get Started button
+		boolean getstatedtop_clickable = fp.getstart_topclick();
+		Assert.assertEquals(getstatedtop_clickable, true);
+		
+		//Checking bottom Get Started Button
+		boolean getstatednbottom_clickable = fp.getstart_topclick();
+		Assert.assertEquals(getstatednbottom_clickable, true);
+		
+		
+		//clicking on get started button(top)
+		starmethods.getStrtedtopClickmethod();
+		
+		//navigating back
+		driver.navigate().back();
+		
+		//clicking on get started button(bottom)
+		JavascriptExecutor scrollexe = ((JavascriptExecutor) driver);
+		scrollexe.executeScript("window.scrollBy(0, 3500)");
+		
+		starmethods.getStrtedbottomClickmethod();  
 
-		// checking the facebook button
+
+		// checking the forgot button
 		ExtentTest expforgot_button = extent.createTest("Forgot button check");
 		boolean clickable = fp.forgot_btn_clickable();
 		Assert.assertEquals(clickable, true);

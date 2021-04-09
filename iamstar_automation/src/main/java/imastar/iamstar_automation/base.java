@@ -8,12 +8,11 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 
 public class base
 {
@@ -28,8 +27,8 @@ public class base
 		try
 		{
 			prop= new Properties();
-			FileInputStream file=new FileInputStream("C:\\Users\\Thinksysuser\\git\\ImAstar\\"
-					+ "iamstar_automation\\src\\main\\java\\pagesdata_automation\\Config.properties");
+			FileInputStream file=new FileInputStream("C:\\Users\\Thinksysuser\\git\\ImAstar"
+					+ "\\iamstar_automation\\src\\main\\java\\imastar_config\\Config.properties");
 			prop.load(file);
 		}
 		catch(FileNotFoundException e)
@@ -66,12 +65,29 @@ public class base
 			driver=new InternetExplorerDriver();
 		}
 		
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Util.timeout, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(Util.pageout, TimeUnit.SECONDS);
 		driver.manage().deleteAllCookies();
 
-		driver.get(prop.getProperty("url"));
+		try
+		{
+			driver.get(prop.getProperty("url"));
+			Thread.sleep(4000);
+			driver.navigate().refresh();
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getCause());
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			
+			driver.switchTo().newWindow(WindowType.TAB);
+			driver.get(prop.getProperty("url"));
+			Thread.sleep(3000);
+			driver.navigate().refresh();
+		}
 		Thread.sleep(3000);
 		
 		/* DEPRICIATED

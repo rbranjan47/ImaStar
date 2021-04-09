@@ -1,35 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-04-08T15:31:44 IST" name="Default suite" finished-at="2021-04-08T15:31:45 IST" duration-ms="255">
+  <suite started-at="2021-04-09T18:18:02 IST" name="Default suite" finished-at="2021-04-09T18:18:28 IST" duration-ms="25295">
     <groups>
     </groups>
-    <test started-at="2021-04-08T15:31:44 IST" name="Default test" finished-at="2021-04-08T15:31:45 IST" duration-ms="255">
-      <class name="rough_imastar.rough_class">
-        <test-method signature="initialization()[pri:0, instance:rough_imastar.rough_class@581ac8a8]" started-at="2021-04-08T15:31:44 IST" name="initialization" finished-at="2021-04-08T15:31:45 IST" duration-ms="185" status="FAIL">
-          <exception class="java.lang.IllegalStateException">
+    <test started-at="2021-04-09T18:18:02 IST" name="Default test" finished-at="2021-04-09T18:18:28 IST" duration-ms="25295">
+      <class name="imastar.iamstar_automation.loginCredentials_test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:imastar.iamstar_automation.loginCredentials_test@73e22a3d]" started-at="2021-04-09T18:18:03 IST" name="setup" finished-at="2021-04-09T18:18:28 IST" duration-ms="25192" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[The driver executable must exist: C:\Users\Thinksysuser\git\ImAstar\iamstar_automation\‪.\iamstar_automation\driver\geckodriver.exe]]>
+              <![CDATA[timeout: Timed out receiving message from renderer: 9.910
+  (Session info: chrome=89.0.4389.114)
+Build info: version: '4.0.0-alpha-7', revision: 'de8579b6d5'
+System info: host: 'CPU-0060', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.114, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\THINKS~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53522}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8ee0ab1e6c92c1cdadfa36a1ec0b2276]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IllegalStateException: The driver executable must exist: C:\Users\Thinksysuser\git\ImAstar\iamstar_automation\‪.\iamstar_automation\driver\geckodriver.exe
-at org.openqa.selenium.internal.Require$FileStateChecker.isFile(Require.java:289)
-at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:154)
-at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:149)
-at org.openqa.selenium.firefox.GeckoDriverService.access$100(GeckoDriverService.java:45)
-at org.openqa.selenium.firefox.GeckoDriverService$Builder.findDefaultExecutable(GeckoDriverService.java:186)
-at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:405)
-at org.openqa.selenium.firefox.FirefoxDriver.toExecutor(FirefoxDriver.java:207)
-at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:177)
-at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:155)
-at rough_imastar.rough_class.initialization(rough_class.java:62)
+              <![CDATA[org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 9.910
+  (Session info: chrome=89.0.4389.114)
+Build info: version: '4.0.0-alpha-7', revision: 'de8579b6d5'
+System info: host: 'CPU-0060', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.114, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\THINKS~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53522}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8ee0ab1e6c92c1cdadfa36a1ec0b2276
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:167)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:123)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:501)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:273)
+at imastar.iamstar_automation.base.initialization(base.java:87)
+at imastar.iamstar_automation.loginCredentials_test.setup(loginCredentials_test.java:26)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 at java.base/java.lang.reflect.Method.invoke(Method.java:564)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:61)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:366)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:320)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:701)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
@@ -54,11 +74,86 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IllegalStateException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initialization -->
-      </class> <!-- rough_imastar.rough_class -->
+        </test-method> <!-- setup -->
+        <test-method signature="home_page()[pri:0, instance:imastar.iamstar_automation.loginCredentials_test@73e22a3d]" started-at="2021-04-09T18:18:28 IST" name="home_page" finished-at="2021-04-09T18:18:28 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[timeout: Timed out receiving message from renderer: 9.910
+  (Session info: chrome=89.0.4389.114)
+Build info: version: '4.0.0-alpha-7', revision: 'de8579b6d5'
+System info: host: 'CPU-0060', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.114, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\THINKS~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53522}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8ee0ab1e6c92c1cdadfa36a1ec0b2276]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: timeout: Timed out receiving message from renderer: 9.910
+  (Session info: chrome=89.0.4389.114)
+Build info: version: '4.0.0-alpha-7', revision: 'de8579b6d5'
+System info: host: 'CPU-0060', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.114, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: C:\Users\THINKS~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53522}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 8ee0ab1e6c92c1cdadfa36a1ec0b2276
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:167)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:123)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:501)
+at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:273)
+at imastar.iamstar_automation.base.initialization(base.java:87)
+at imastar.iamstar_automation.loginCredentials_test.setup(loginCredentials_test.java:26)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:61)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:366)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:320)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:701)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:527)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:764)
+at org.testng.TestRunner.run(TestRunner.java:585)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+at org.testng.TestNG.runSuites(TestNG.java:1069)
+at org.testng.TestNG.run(TestNG.java:1037)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- home_page -->
+        <test-method is-config="true" signature="exit()[pri:0, instance:imastar.iamstar_automation.loginCredentials_test@73e22a3d]" started-at="2021-04-09T18:18:28 IST" name="exit" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1617972508239" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exit -->
+      </class> <!-- imastar.iamstar_automation.loginCredentials_test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

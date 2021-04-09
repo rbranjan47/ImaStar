@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,14 +15,17 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import Methods_automation.imastarmethods;
 import imastar.iamstar_automation.Util;
 
-public class rough_class
+public class rough_class  
 {
 	public static WebDriver driver=null;
 	public static Properties prop;
 	public static WebDriverWait wait;
 	public static WebElement element;
+	
+	imastarmethods imethos;
 	
 	// constructor
 	public  rough_class() 
@@ -29,8 +33,8 @@ public class rough_class
 		try
 		{
 			prop= new Properties();
-			FileInputStream file=new FileInputStream("C:\\Users\\Thinksysuser\\git\\ImAstar\\"
-					+ "iamstar_automation\\src\\main\\java\\pagesdata_automation\\Config.properties");
+			FileInputStream file=new FileInputStream("C:\\Users\\Thinksysuser\\git\\ImAstar\\iamstar_automation"
+					+ "\\src\\main\\java\\imastar_config\\Config.properties");
 			prop.load(file);
 		}
 		catch(FileNotFoundException e)
@@ -58,7 +62,7 @@ public class rough_class
 		}
 		else if(browsername.equals("firefox"))
 		{
-			System.setProperty("webdriver.gecko.driver", "‪./iamstar_automation/driver/geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "‪./driver/geckodriver.exe");
 			driver=new FirefoxDriver();
 		}
 		
@@ -68,12 +72,14 @@ public class rough_class
 			driver=new InternetExplorerDriver();
 		}
 		
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Util.timeout, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(Util.pageout, TimeUnit.SECONDS);
 		driver.manage().deleteAllCookies();
 
 		driver.get(prop.getProperty("prod_url"));
+		Thread.sleep(4000);
+		driver.navigate().refresh();
 		Thread.sleep(3000);
 		
 		/* DEPRICIATED
@@ -84,7 +90,11 @@ public class rough_class
 		*/
 		
 		System.out.println(driver.getTitle());
-		driver.close();
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("window.scrollBy(0, 3500)");
+		
+		driver.navigate().refresh();
+		
 		
 	}
 }

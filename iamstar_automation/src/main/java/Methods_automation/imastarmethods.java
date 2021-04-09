@@ -7,13 +7,34 @@ import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-import freemarker.core.JavaScriptOutputFormat;
 import imastar.iamstar_automation.base;
 
-public class imastarmethods extends base
+public class imastarmethods extends base 
 {
 	public static WebElement element;
+	//top get started button
+    @FindBy(xpath = "//a[@class='btn-start mt-sm-0']")
+	WebElement get_started_bottom;
+			
+	//get started bottom button
+	@FindBy(xpath = "//a[@class='btn-start']")
+	WebElement get_started_top;
+	
+	
+	//clicking on get started top button
+	public void getStrtedtopClickmethod()
+	{
+	  get_started_top.click();
+	}
+	
+	//clicking on get started top button
+	public void getStrtedbottomClickmethod()
+	{
+	   get_started_bottom.click();
+	} 
+	
 	//JS click methods
 	public void js_click()
 	{

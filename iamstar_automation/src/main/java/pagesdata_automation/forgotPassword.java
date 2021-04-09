@@ -52,7 +52,16 @@ public class forgotPassword extends base
 	
 	@FindBy(xpath = "//button[contains(text(),'Log In')]")
 	WebElement login_imastar;
-
+	
+	//top get started button
+	@FindBy(xpath = "//a[@class='btn-start mt-sm-0']")
+	WebElement getstarted_bottom;
+		
+	//get started bottom button
+	@FindBy(xpath = "//a[@class='btn-start']")
+	WebElement getstarted_top;
+		
+	
 	// Intializing the POM
 	public forgotPassword() {
 		PageFactory.initElements(driver, this);
@@ -61,6 +70,11 @@ public class forgotPassword extends base
 	// getting title
 	public String page_title() {
 		return driver.getTitle();
+	}
+	
+	public boolean getstart_topclick()
+	{
+			return getstarted_top.isEnabled();
 	}
 
 	// checking fogot button
@@ -83,8 +97,7 @@ public class forgotPassword extends base
 	public void forgrotlink() {
 		click_link.click();
 	}
-
-
+	
 	// opening new window to confirm mail
 	@SuppressWarnings("deprecation")
 	public void gmail() throws InterruptedException 

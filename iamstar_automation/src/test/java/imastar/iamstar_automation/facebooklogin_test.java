@@ -3,6 +3,8 @@ package imastar.iamstar_automation;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.openqa.selenium.WebDriver;
+
 //import java.util.Iterator;
 //import java.util.Set;
 
@@ -16,6 +18,7 @@ import pagesdata_automation.facebook_login;
 
 public class facebooklogin_test extends base
 {
+	WebDriver driver;
 	facebook_login ln;
 	
 	

@@ -1,5 +1,8 @@
 package imastar.iamstar_automation;
 
+import java.util.Iterator;
+import java.util.Set;
+
 //import java.util.Iterator;
 //import java.util.Set;
 
@@ -42,7 +45,7 @@ public class facebooklogin_test extends base
 		boolean clickable = ln.facebook_btn_click();
 		Assert.assertEquals(clickable, true);
 		
-		/* String parent_window = driver.getWindowHandle();
+		String parent_window = driver.getWindowHandle();
 		
 		Set<String> windows = driver.getWindowHandles();
 		
@@ -62,7 +65,7 @@ public class facebooklogin_test extends base
 				
 				ln.facebook(email, pass);	
 			}  
-		}	*/
+		}	
 		
 		String email = prop.getProperty("facebook_email_default");
 		String pass = prop.getProperty("facebook_pass_default");

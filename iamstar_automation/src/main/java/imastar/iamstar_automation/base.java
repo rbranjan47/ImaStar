@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class base
 {
 	public static WebDriver driver=null;
-	public static Properties prop;
+	public static Properties property;
 	public static WebDriverWait wait;
 	public static WebElement element;
 	
@@ -26,10 +26,10 @@ public class base
 	{
 		try
 		{
-			prop= new Properties();
+			property= new Properties();
 			FileInputStream file=new FileInputStream("C:\\Users\\Thinksysuser\\git\\ImAstar"
 					+ "\\iamstar_automation\\src\\main\\java\\imastar_config\\Config.properties");
-			prop.load(file);
+			property.load(file);
 		}
 		catch(FileNotFoundException e)
 		{
@@ -45,7 +45,7 @@ public class base
 	public static void initialization() throws InterruptedException
 	{
      	
-		String browsername=prop.getProperty("browser");
+		String browsername=property.getProperty("browser");
 		
 		if (browsername.equals("chrome"))
 		{
@@ -72,7 +72,7 @@ public class base
 
 		try
 		{
-			driver.get(prop.getProperty("url"));
+			driver.get(property.getProperty("url"));
 			Thread.sleep(4000);
 			driver.navigate().refresh();
 			
@@ -84,7 +84,7 @@ public class base
 			e.printStackTrace();
 			
 			driver.switchTo().newWindow(WindowType.TAB);
-			driver.get(prop.getProperty("url"));
+			driver.get(property.getProperty("url"));
 			Thread.sleep(3000);
 			driver.navigate().refresh();
 		}

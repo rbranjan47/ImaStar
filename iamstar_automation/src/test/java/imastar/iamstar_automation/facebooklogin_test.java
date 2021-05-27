@@ -63,15 +63,15 @@ public class facebooklogin_test extends base
 				driver.switchTo().window(child_window);
 				
 				//getting value of email and password
-				String email = prop.getProperty("facebook_email_default");
-				String pass = prop.getProperty("facebook_pass_default");
+				String email = property.getProperty("facebook_email_default");
+				String pass = property.getProperty("facebook_pass_default");
 				
 				ln.facebook(email, pass);	
 			}  
 		}	
 		
-		String email = prop.getProperty("facebook_email_default");
-		String pass = prop.getProperty("facebook_pass_default");
+		String email = property.getProperty("facebook_email_default");
+		String pass = property.getProperty("facebook_pass_default");
 		
 		ln.facebook(email, pass);
 	}

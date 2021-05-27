@@ -86,7 +86,7 @@ public class forgotpassword_test extends base
 		// forgoting password
 		ExtentTest expforgot_pwd = extent.createTest("Forgoting Password");
 		
-		String forgotMail = prop.getProperty("forgot_mail");
+		String forgotMail = property.getProperty("forgot_mail");
 		fp.forgot_pass(forgotMail);
 		ExtentTest expforgot_node = expforgot_pwd.createNode("Passing Mail ID in Forgot Password");
 		expforgot_node.pass("Inserted Mail ID successfully");

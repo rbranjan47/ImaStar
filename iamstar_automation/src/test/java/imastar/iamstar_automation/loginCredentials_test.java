@@ -58,8 +58,8 @@ public class loginCredentials_test extends imastarmethods
 		ht.click_login();
 		
 		//logging In
-		String email_value = prop.getProperty("signin_email");
-		String pass_value = prop.getProperty("signin_pass");
+		String email_value = property.getProperty("signin_email");
+		String pass_value = property.getProperty("signin_pass");
 		
 		//checking login button
 		boolean login_clickable = ht.login_btn_click();

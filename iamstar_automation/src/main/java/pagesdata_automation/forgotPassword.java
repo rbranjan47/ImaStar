@@ -109,14 +109,14 @@ public class forgotPassword extends base
 	    driver.switchTo().window(windows.get(1));
 	    Thread.sleep(3000);
 		
-		driver.get(prop.getProperty("gmail_link_address"));
+		driver.get(property.getProperty("gmail_link_address"));
 	 
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		// passing mail ID
 		WebElement userElement = wait.until(ExpectedConditions.elementToBeClickable(gmail_email));
 		userElement.click();
 		userElement.clear();
-		userElement.sendKeys(prop.getProperty("gmail_email_forgot"));
+		userElement.sendKeys(property.getProperty("gmail_email_forgot"));
 		// clicking on next button
 		WebElement identifierNext = wait.until(ExpectedConditions.elementToBeClickable(gmail_next));
 		identifierNext.click();
@@ -124,7 +124,7 @@ public class forgotPassword extends base
 		WebElement passwordElement = wait.until(ExpectedConditions.elementToBeClickable(password_field));
 		passwordElement.click();
 		passwordElement.clear();
-		passwordElement.sendKeys(prop.getProperty("gmail_password_forgot"));
+		passwordElement.sendKeys(property.getProperty("gmail_password_forgot"));
 		// clicking on next button
 		WebElement passwordNext = wait.until(ExpectedConditions.elementToBeClickable(login_next));
 		passwordNext.click();
@@ -154,7 +154,7 @@ public class forgotPassword extends base
 		List<String> window =  imethods.window_Handle();
 		driver.switchTo().window(window.get(2));
 		
-		String new_password = prop.getProperty("imastar_new_password");
+		String new_password = property.getProperty("imastar_new_password");
 		System.out.println("new password is :" + new_password);
 		driver.findElement(By.id("restpassword")).sendKeys(new_password);
 		driver.findElement(By.id("restconfirmpassword")).sendKeys(new_password);
@@ -179,11 +179,11 @@ public class forgotPassword extends base
 	public void imastarpasswordcheck()
 	{
 		driver.switchTo().newWindow(WindowType.TAB);
-		driver.get(prop.getProperty("login_url"));
+		driver.get(property.getProperty("login_url"));
 		
 		//sending mail
-		email_imastar.sendKeys(prop.getProperty("functiontest871@gmail.com"));
-		password_imastar.sendKeys(prop.getProperty("signin_pass"));
+		email_imastar.sendKeys(property.getProperty("functiontest871@gmail.com"));
+		password_imastar.sendKeys(property.getProperty("signin_pass"));
 		
 		
 		if(login_imastar.isEnabled())
